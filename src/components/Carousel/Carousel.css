@@ -1,0 +1,28 @@
+.carousel{
+  position: relative;
+  overflow: scroll;
+  width: 100%;
+  padding-left: 32px;
+}
+.carousel::-webkit-scrollbar{
+  width: 0;
+}
+.carousel-container{
+  transition: 450ms -webkit-transform;
+  transition: 450ms transform;
+  transition: 450ms transform -webkit-transform;
+  margin: 70px 0;
+  padding-bottom: 10px;
+  white-space: nowrap;
+  font-size: 0;
+}
+
+.carousel-container:hover .card{
+  opacity: 0.3;
+}
+
+.carousel-container:hover .card:hover{
+  opacity: 1;
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+}
