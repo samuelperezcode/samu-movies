@@ -4,7 +4,6 @@ export const getMovies = async () => {
     const data = await json.json()
     return data
   } catch (error) {
-    console.log(error)
-    return 
+    throw new Error(error)
   }
 }

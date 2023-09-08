@@ -9,7 +9,7 @@ import { useMovies } from "./hooks/useMovies"
 
 
 function App() {
-  const { initialState } = useMovies()
+  const { initialState, error} = useMovies()
   const miLista = initialState.miLista
   const tendencias = initialState.tendencias
   const mejores = initialState.mejorRating
@@ -21,11 +21,13 @@ function App() {
       <CategorySection title='Mi Lista'>
         <Carousel>
           {
-            miLista 
-              ? miLista.map(item => {
-                return <Card key={item.id} id={item.id} title={item.title} year={item.year} rating={item.rating} poster={item.poster} />
-              })
-              : <p>Loanding...</p>
+            error 
+              ? <p>Error Server</p>
+              : miLista 
+                ? miLista.map(item => {
+                  return <Card key={item.id} id={item.id} title={item.title} year={item.year} rating={item.rating} poster={item.poster} />
+                })
+                : <p>Loanding...</p>   
           }
           
         </Carousel>
@@ -34,11 +36,13 @@ function App() {
       <CategorySection title='Tendencia'>
         <Carousel>
           {
-            tendencias 
-            ? tendencias.map(item => {
-              return <Card key={item.id} id={item.id} title={item.title} year={item.year} rating={item.rating} poster={item.poster} />
-            })
-            : <p>Loanding...</p>
+            error 
+            ? <p>Error Server</p>
+            : miLista 
+              ? tendencias.map(item => {
+                return <Card key={item.id} id={item.id} title={item.title} year={item.year} rating={item.rating} poster={item.poster} />
+              })
+              : <p>Loanding...</p>
           }
         </Carousel>
       </CategorySection>
@@ -46,11 +50,13 @@ function App() {
       <CategorySection title='Mejores'>
         <Carousel>
           {
-            mejores 
-            ? mejores.map(item => {
-              return <Card key={item.id} id={item.id} title={item.title} year={item.year} rating={item.rating} poster={item.poster} />
-            })
-            : <p>Loanding...</p>
+            error 
+            ? <p>Error Server</p>
+            : miLista 
+              ? mejores.map(item => {
+                return <Card key={item.id} id={item.id} title={item.title} year={item.year} rating={item.rating} poster={item.poster} />
+              })
+              : <p>Loanding...</p>
           }
         </Carousel>
       </CategorySection>

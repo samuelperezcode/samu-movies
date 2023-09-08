@@ -1,15 +1,16 @@
 import './Header.css'
-import logo from '../../assets/react.svg'
+import { IconLogo, IconUser } from '../Icons'
 
 function Header() {
   return (
     <header>
      <a href="#" className='header-logo'>
-      <img src={logo} alt="logo" width='px' height='32px' />
+      <IconLogo />
+      <h3 className='header-logo--text'>Samu-Movies</h3>
      </a>
      <nav className='header-menu'>
       <div className='header-menu--profile'>
-        <img src={logo} alt="" />
+        <IconUser />
       </div>
       <ul className='header-menu--links'>
         <li><a href="#">Cuenta</a></li>

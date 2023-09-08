@@ -43,8 +43,11 @@
   transition: .4s opacity;
 }
 
+.card-info--icons{
+  padding: 0;
+}
 .card-info--icon{
-  width: 20px;
+  cursor: alias;
 }
 .card:hover .card-info{
   opacity: 1;
