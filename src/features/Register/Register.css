@@ -31,12 +31,12 @@
   align-items: center;
 }
 
-.register-container a{
+.register .register-container--link{
   color: #ddd;
   font-size: 16px;
   text-decoration: none;
 }
-.register-container a:hover{
+.register .register-container--link:hover{
   color: #fff;
   text-decoration: underline;
 }

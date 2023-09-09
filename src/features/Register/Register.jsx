@@ -1,4 +1,5 @@
 import './Register.css'
+import { Link } from 'react-router-dom'
 
 function Register() {
   return (
@@ -9,9 +10,9 @@ function Register() {
         <input className="search-bar" type="text" />
         <input className="search-bar" type="text" />
         <input className="search-bar" type="text" />
-        <button className="button">Registrar</button>
+        <Link to='/' className="button">Registrar</Link>
       </form>
-      <a href="/login">Ya tienes una cuenta? <strong>Ingresa</strong></a>
+      <Link to="/login" className='register-container--link'>Ya tienes una cuenta? <strong>Ingresa</strong></Link>
       </section>
     </section>
   )

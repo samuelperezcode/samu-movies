@@ -1,5 +1,6 @@
 import './Login.css'
 import logo from '..//../assets/react.svg'
+import { Link } from 'react-router-dom'
 
 function Login() {
   return (
@@ -9,9 +10,9 @@ function Login() {
         <form action="" className="login-container--form">
           <input type="text" className="search-bar" placeholder="Nombre"/>
           <input type="password" className="search-bar" placeholder="Contraseña" />
-          <button className="button">Ingresar</button>
+          <Link to='/' className="button">Ingresar</Link>
           <div className="login-container--remember-me">
-            <a href="">Olvidaste tu contraseña ?</a>
+            <Link to='#' >Olvidaste tu contraseña ?</Link>
           </div>
         </form>
         <section className="login-container--social-media">
@@ -24,7 +25,7 @@ function Login() {
             <a href="">Iniciar sesion con twitter</a>
           </div>
         </section>
-        <p className="login-container--register">No tienes ninguna cuenta? <a href="/register">Registrarte</a></p>
+        <p className="login-container--register">No tienes ninguna cuenta? <Link to="/register">Registrarte</Link></p>
       </section>
     </section>
   )
