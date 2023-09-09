@@ -24,7 +24,7 @@ function Login() {
             <a href="">Iniciar sesion con twitter</a>
           </div>
         </section>
-        <p className="login-container--register">No tienes ninguna cuenta? <a href="">Registrarte</a></p>
+        <p className="login-container--register">No tienes ninguna cuenta? <a href="/register">Registrarte</a></p>
       </section>
     </section>
   )
