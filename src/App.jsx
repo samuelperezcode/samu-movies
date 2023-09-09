@@ -1,67 +1,19 @@
-
-import Card from "./components/Card/Card"
-import Carousel from "./components/Carousel/Carousel"
-import CategorySection from "./components/CategorySection/CategorySection"
-import Footer from "./components/Footer/Footer"
-import Header from "./components/Header/Header"
-import SearchBar from "./components/SearchBar/SearchBar"
-import { useMovies } from "./hooks/useMovies"
+import Home from "./features/Home"
+import Login from "./features/Login/Login"
+import Perfil from "./features/Perfil"
+import Register from "./features/Register/Register"
+import { Routes, Route } from "react-router-dom"
 
 
 function App() {
-  const { initialState, error} = useMovies()
-  const miLista = initialState.miLista
-  const tendencias = initialState.tendencias
-  const mejores = initialState.mejorRating
 
   return (
-    <>
-      <Header />
-      <SearchBar />
-      <CategorySection title='Mi Lista'>
-        <Carousel>
-          {
-            error 
-              ? <p>Error Server</p>
-              : miLista 
-                ? miLista.map(item => {
-                  return <Card key={item.id} id={item.id} title={item.title} year={item.year} rating={item.rating} poster={item.poster} />
-                })
-                : <p>Loanding...</p>   
-          }
-          
-        </Carousel>
-      </CategorySection>
-
-      <CategorySection title='Tendencia'>
-        <Carousel>
-          {
-            error 
-            ? <p>Error Server</p>
-            : miLista 
-              ? tendencias.map(item => {
-                return <Card key={item.id} id={item.id} title={item.title} year={item.year} rating={item.rating} poster={item.poster} />
-              })
-              : <p>Loanding...</p>
-          }
-        </Carousel>
-      </CategorySection>
-
-      <CategorySection title='Mejores'>
-        <Carousel>
-          {
-            error 
-            ? <p>Error Server</p>
-            : miLista 
-              ? mejores.map(item => {
-                return <Card key={item.id} id={item.id} title={item.title} year={item.year} rating={item.rating} poster={item.poster} />
-              })
-              : <p>Loanding...</p>
-          }
-        </Carousel>
-      </CategorySection>
-      <Footer />
-    </>
+    <Routes>
+      <Route path="/" element={<Home />}  />
+      <Route path="/login" element={<Login />}  />
+      <Route path="/login" element={<Register />}  />
+      <Route path="/perfil/:slug" element={<Perfil />}  />
+    </Routes>
   )
 }
 
