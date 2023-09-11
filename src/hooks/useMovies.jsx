@@ -1,5 +1,5 @@
-import {  useEffect, useState } from "react"
-import { getMovies } from "../service/getMovies"
+import { useEffect, useState } from 'react'
+import { getMovies } from '../service/getMovies'
 
 export const useMovies = () => {
   const [initialState, setInitialState] = useState({})
@@ -9,7 +9,7 @@ export const useMovies = () => {
   const searchMovies = () => {
     getMovies().then(movies => setInitialState(movies))
   }
-  
+
   useEffect(() => {
     try {
       setError(false)
@@ -17,12 +17,10 @@ export const useMovies = () => {
       searchMovies()
     } catch (e) {
       setError(true)
-    }
-    finally{
+    } finally {
       setIsLoading(false)
     }
-  },[])
+  }, [])
 
-  return {initialState, error, isLoading ,setInitialState}
+  return { initialState, error, isLoading, setInitialState }
 }
-
