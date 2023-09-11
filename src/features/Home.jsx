@@ -4,43 +4,35 @@ import CategorySection from '../components/CategorySection/CategorySection'
 import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
 import SearchBar from '../components/SearchBar/SearchBar'
-import { useMovies } from '../hooks/useMovies'
+import { useAppSelector } from '../hooks/store'
 
 function Home () {
-  const { initialState, error } = useMovies()
-  const miLista = initialState.miLista
-  const tendencias = initialState.tendencias
-  const mejores = initialState.mejorRating
-
+  const movies = useAppSelector(state => state.movies)
+  const displayFavorites = movies.miLista.length > 0
   return (
     <>
       <Header />
       <SearchBar />
-      <CategorySection title='Mi Lista'>
-        <Carousel>
-          {
-            error
-              ? <p>Error Server</p>
-              : miLista
-                ? miLista.map(item => {
+      {
+        displayFavorites && (
+          <CategorySection title='Mi Lista'>
+            <Carousel>
+              {
+                movies.miLista.map(item => {
                   return <Card key={item.id} id={item.id} title={item.title} year={item.year} rating={item.rating} poster={item.poster} />
                 })
-                : <p>Loanding...</p>
-          }
-
-        </Carousel>
-      </CategorySection>
+              }
+            </Carousel>
+          </CategorySection>
+        )
+      }
 
       <CategorySection title='Tendencia'>
         <Carousel>
           {
-            error
-              ? <p>Error Server</p>
-              : miLista
-                ? tendencias.map(item => {
-                  return <Card key={item.id} id={item.id} title={item.title} year={item.year} rating={item.rating} poster={item.poster} />
-                })
-                : <p>Loanding...</p>
+            movies.tendencias.map(item => {
+              return <Card key={item.id} id={item.id} title={item.title} year={item.year} rating={item.rating} poster={item.poster} />
+            })
           }
         </Carousel>
       </CategorySection>
@@ -48,13 +40,9 @@ function Home () {
       <CategorySection title='Mejores'>
         <Carousel>
           {
-            error
-              ? <p>Error Server</p>
-              : miLista
-                ? mejores.map(item => {
-                  return <Card key={item.id} id={item.id} title={item.title} year={item.year} rating={item.rating} poster={item.poster} />
-                })
-                : <p>Loanding...</p>
+            movies.mejorRating.map(item => {
+              return <Card key={item.id} id={item.id} title={item.title} year={item.year} rating={item.rating} poster={item.poster} />
+            })
           }
         </Carousel>
       </CategorySection>

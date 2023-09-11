@@ -7,7 +7,6 @@
   margin-right: 10px;
   border-radius: 20px;
   font-size: 20px;
-  cursor: pointer;
   transition: .4s all;
   transform-origin: center left ;
 }
@@ -44,10 +43,19 @@
 }
 
 .card-info--icons{
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
   padding: 0;
+
 }
-.card-info--icon{
-  cursor: alias;
+
+.card-info--icons-btn{
+  cursor: pointer;
+  background-color: #8f57fd;
+  border: 0;
+  border-radius: 999px;
+  padding: 4px 6px;
 }
 .card:hover .card-info{
   opacity: 1;
