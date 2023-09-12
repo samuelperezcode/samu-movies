@@ -6,6 +6,7 @@ import Page404 from './features/404'
 import { Routes, Route } from 'react-router-dom'
 import { AuthProvider } from './hooks/useAuth'
 import ProtectedRoute from './components/ProtectedRoute'
+import Player from './features/Player/Player'
 
 function App () {
   return (
@@ -14,6 +15,7 @@ function App () {
         <Route path='/' element={<ProtectedRoute><Home /></ProtectedRoute>} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/player/:id' element={<ProtectedRoute><Player /></ProtectedRoute>} />
         <Route path='/perfil/:slug' element={<ProtectedRoute><Perfil /> </ProtectedRoute>} />
         <Route path='*' element={<Page404 />} />
       </Routes>

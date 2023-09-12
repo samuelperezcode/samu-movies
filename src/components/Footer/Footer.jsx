@@ -1,10 +1,10 @@
 import './Footer.css'
-function Footer() {
+function Footer () {
   return (
     <footer>
-      <a href="#">Terminos de uso</a>
-      <a href="#">Declaracion de privacidad</a>
-      <a href="#">Centro de Ayuda</a>
+      <a href='#'>Terminos de uso</a>
+      <a href='#'>Declaracion de privacidad</a>
+      <a href='#'>Centro de Ayuda</a>
     </footer>
   )
 }

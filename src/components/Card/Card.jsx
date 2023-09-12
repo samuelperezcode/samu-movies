@@ -1,4 +1,5 @@
-import { IconPlay, IconPlus } from '../Icons'
+import { Link } from 'react-router-dom'
+import { IconDelete, IconPlay, IconPlus } from '../Icons'
 import { useMoviesActions } from '../../hooks/useMoviesActions'
 import { useAppSelector } from '../../hooks/store'
 import './Card.css'
@@ -21,9 +22,9 @@ function Card ({ id, title, year, rating, poster }) {
       <img className='card-image' src={poster} alt='' />
       <div className='card-info'>
         <section className='card-info--icons'>
-          <button className='card-info--icons-btn'>
+          <Link to={`/player/${id}`} className='card-info--icons-btn'>
             <IconPlay className='card-info--icon' />
-          </button>
+          </Link>
           {
             !isFav
               ? (
@@ -33,7 +34,7 @@ function Card ({ id, title, year, rating, poster }) {
                 )
               : (
                 <button onClick={handleCLickDelete} className='card-info--icons-btn'>
-                  🗑
+                  <IconDelete />
                 </button>
                 )
           }

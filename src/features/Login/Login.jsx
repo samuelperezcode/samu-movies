@@ -1,9 +1,10 @@
 import './Login.css'
-import logo from '..//../assets/react.svg'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { useUserActions } from '../../hooks/useUserActions'
 import { useAuth } from '../../hooks/useAuth'
+import googleIcon from '../../assets/google.svg'
+import twitterIcon from '../../assets/twitter.svg'
 
 function Login () {
   const [form, setForm] = useState({
@@ -47,11 +48,11 @@ function Login () {
         </form>
         <section className='login-container--social-media'>
           <div>
-            <img src={logo} alt='' />
+            <img src={googleIcon} alt='google logo' />
             <a href=''> Iniciar sesion con google</a>
           </div>
           <div>
-            <img src={logo} alt='' />
+            <img src={twitterIcon} alt='twitter logo' />
             <a href=''>Iniciar sesion con twitter</a>
           </div>
         </section>
