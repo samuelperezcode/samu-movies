@@ -1,12 +1,11 @@
 import { IconPlay, IconPlus } from '../Icons'
 import { useMoviesActions } from '../../hooks/useMoviesActions'
-import './Card.css'
 import { useAppSelector } from '../../hooks/store'
+import './Card.css'
 
 // eslint-disable-next-line react/prop-types
 function Card ({ id, title, year, rating, poster }) {
   const isFav = useAppSelector(state => state.movies.miLista).some(movie => movie.id === id)
-
   const { handleSetFavorie, handleDeletefavorite } = useMoviesActions()
 
   const handleCLickPlus = () => {
