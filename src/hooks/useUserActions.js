@@ -1,5 +1,5 @@
 import { useAppDispatch } from './store'
-import { addUser, editUser, loginUser, deleteUser } from '../store/user/slice'
+import { addUser, editUser, loginUser, deleteUser, logoutUser } from '../store/user/slice'
 
 export const useUserActions = () => {
   const dispatch = useAppDispatch()
@@ -12,13 +12,17 @@ export const useUserActions = () => {
     dispatch(loginUser({ email, password }))
   }
 
-  const handleDeleteUser = ({ name }) => {
-    dispatch(deleteUser({ name }))
+  const handleDeleteUser = ({ id }) => {
+    dispatch(deleteUser({ id }))
   }
 
   const handleEditUser = ({ name, email, password }) => {
     dispatch(editUser({ name, email, password }))
   }
 
-  return { handleCreateUser, handleLoginUser, handleDeleteUser, handleEditUser }
+  const handleLogoutUser = () => {
+    dispatch(logoutUser())
+  }
+
+  return { handleCreateUser, handleLoginUser, handleDeleteUser, handleEditUser, handleLogoutUser }
 }

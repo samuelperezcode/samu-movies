@@ -29,7 +29,10 @@ const userSlice = createSlice({
         account: newUser
       }
     },
-    deleteUser: () => {},
+    deleteUser: (state, action) => {
+      const { id } = action.payload
+      return state.users.filter(user => user.id !== id)
+    },
     editUser: () => {},
     loginUser: (state, action) => {
       const { email, password } = action.payload
