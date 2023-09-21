@@ -166,9 +166,14 @@ const moviesSlice = createSlice({
         ...state,
         miLista: newMiLista
       }
+    },
+    getSourceMovieById: (state, action) => {
+      const { id } = action.payload
+      const source = state.tendencias.find(movie => movie.id === id)?.source || state.mejorRating.find(movie => movie.id === id)?.source
+      return { ...state, playing: source }
     }
   }
 })
 
 export default moviesSlice.reducer
-export const { addMovie, setFavorite, deleteFavorite } = moviesSlice.actions
+export const { addMovie, setFavorite, deleteFavorite, getSourceMovieById } = moviesSlice.actions

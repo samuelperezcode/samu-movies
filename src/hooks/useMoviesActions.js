@@ -1,5 +1,5 @@
 import { useAppDispatch } from './store'
-import { addMovie, setFavorite, deleteFavorite } from '../store/movies/slice'
+import { addMovie, setFavorite, deleteFavorite, getSourceMovieById } from '../store/movies/slice'
 
 export const useMoviesActions = () => {
   const dispatch = useAppDispatch()
@@ -15,6 +15,9 @@ export const useMoviesActions = () => {
   const handleDeletefavorite = (id) => {
     dispatch(deleteFavorite(id))
   }
+  const handleGetSourcebyId = ({ id }) => {
+    dispatch(getSourceMovieById({ id }))
+  }
 
-  return { handleSetFavorie, handleAddMovie, handleDeletefavorite }
+  return { handleSetFavorie, handleAddMovie, handleDeletefavorite, handleGetSourcebyId }
 }

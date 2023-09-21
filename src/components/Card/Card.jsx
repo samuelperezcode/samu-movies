@@ -7,7 +7,7 @@ import './Card.css'
 // eslint-disable-next-line react/prop-types
 function Card ({ id, title, year, rating, poster }) {
   const isFav = useAppSelector(state => state.movies.miLista).some(movie => movie.id === id)
-  const { handleSetFavorie, handleDeletefavorite } = useMoviesActions()
+  const { handleSetFavorie, handleDeletefavorite, handleGetSourcebyId } = useMoviesActions()
 
   const handleCLickPlus = () => {
     handleSetFavorie(id)
@@ -17,12 +17,16 @@ function Card ({ id, title, year, rating, poster }) {
     handleDeletefavorite(id)
   }
 
+  const handleClickPlay = () => {
+    handleGetSourcebyId({ id })
+  }
+
   return (
     <article className='card'>
       <img className='card-image' src={poster} alt='' />
       <div className='card-info'>
         <section className='card-info--icons'>
-          <Link to={`/player/${id}`} className='card-info--icons-btn'>
+          <Link onClick={handleClickPlay} to={`/player/${id}`} className='card-info--icons-btn'>
             <IconPlay className='card-info--icon' />
           </Link>
           {
